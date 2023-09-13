@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Calculadora {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        double num1, num2;
+        char operador;
+
+        System.out.println("Calculadora en Java");
+        System.out.print("Ingresa el primer número: ");
+        num1 = input.nextDouble();
+
+        System.out.print("Ingresa un operador (+, -, *, /): ");
+        operador = input.next().charAt(0);
+
+        System.out.print("Ingresa el segundo número: ");
+        num2 = input.nextDouble();
+
+        double resultado = 0;
+
+        switch (operador) {
+            case '+':
+                resultado = num1 + num2;
+                break;
+            case '-':
+                resultado = num1 - num2;
+                break;
+            case '*':
+                resultado = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    resultado = num1 / num2;
+                } else {
+                    System.out.println("Error: División por cero no permitida.");
+                    System.exit(1);
+                }
+                break;
+            default:
+                System.out.println("Operador no válido.");
+                System.exit(1);
+        }
+
+        System.out.println("Resultado: " + resultado);
+
+        input.close();
+    }
+}
